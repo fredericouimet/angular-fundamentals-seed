@@ -11,8 +11,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
-    FormsModule
+    CommonModule
   ],
   bootstrap: [AppComponent]
 })
