@@ -28,6 +28,9 @@ import { Passenger } from '../../models/passenger.interface';
       <button (click)="onRemove()">
         Remove
       </button>
+      <button (click)="goToPassenger()">
+        View
+      </button>
     </div>
   `
 })
@@ -42,6 +45,9 @@ export class PassengerDetailComponent implements OnChanges {
   @Output()
   remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
 
+  @Output()
+  view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
   editing: boolean = false;
   
   constructor() {}
@@ -54,6 +60,10 @@ export class PassengerDetailComponent implements OnChanges {
   
   onNameChange(value: string) {
     this.detail.fullname = value;
+  }
+
+  goToPassenger() {
+    this.view.emit(this.detail);
   }
   
   toggleEdit() {
